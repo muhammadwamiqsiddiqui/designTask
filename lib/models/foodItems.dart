@@ -56,3 +56,26 @@ List<FoodItems> pizzas = [
       distance: "9km"
   ),
 ];
+List<FoodItems> biryani = [
+  FoodItems(
+      foodName: "Chicken Biryani",
+      foodUrl: "assets/biryani.png",
+      price: "6,60",
+      rating: "4.0",
+      distance: "3km"
+  ),
+  FoodItems(
+      foodName: "Beef Biryani",
+      foodUrl: "assets/beefbiryani.png",
+      price: "15,80",
+      rating: "4.0",
+      distance: "11km"
+  ),
+  FoodItems(
+      foodName: "Chicken Pulao",
+      foodUrl: "assets/pulao.png",
+      price: "12,0",
+      rating: "4.6",
+      distance: "8km"
+  ),
+];

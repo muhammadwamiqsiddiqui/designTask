@@ -213,6 +213,8 @@ class _FoodsListState extends State<FoodsList> {
                                   case "Pizza":
                                     selectedFoodList = pizzas;
                                     break;
+                                  case "Biryani":
+                                    selectedFoodList = biryani;
                                 }
                               });
                             },
@@ -258,7 +260,7 @@ class _FoodsListState extends State<FoodsList> {
                         child: GestureDetector(
                           onTap: (){
                             log("Index= "+index.toString());
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const FoodDetails()));
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>FoodDetails(foodItems: selectedFoodList[index],)));
                           },
                           child: Stack(
                             alignment: const Alignment(0.0,1.0),

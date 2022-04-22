@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fooddeliveryapp/models/foodItems.dart';
+import 'package:fooddeliveryapp/models/ingredients.dart';
 
 class FoodDetails extends StatefulWidget {
-  const FoodDetails({Key? key}) : super(key: key);
+  FoodItems foodItems;
+  FoodDetails({Key? key,required this.foodItems}) : super(key: key);
 
   @override
   State<FoodDetails> createState() => _FoodDetailsState();
@@ -84,7 +87,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                                 width: _width,
                                 height: _height,
                                 child: Image.asset(
-                                  "assets/burger.png"
+                                 widget.foodItems.foodUrl
                                 ),
                               ),
                             ),
@@ -106,7 +109,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                                   ),
                                   const SizedBox(width: 5,),
                                   Text(
-                                    "4.5",
+                                    widget.foodItems.rating,
                                     style: Theme.of(context).textTheme.labelSmall,
                                   )
                                 ],
@@ -120,7 +123,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                             children:  [
                               Expanded(
                                 child: Text(
-                                  "Extra beef burger with cheese",
+                                  widget.foodItems.foodName,
                                   style: Theme.of(context).textTheme.headlineLarge,
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
@@ -177,7 +180,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                             child: ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
-                              itemCount: 7,
+                              itemCount: ingredients.length,
                               itemBuilder: (context,index) {
                                 return Padding(
                                   padding: const EdgeInsets.only(right: 6.0, top: 6.0, bottom: 6.0),
@@ -190,9 +193,9 @@ class _FoodDetailsState extends State<FoodDetails> {
                                     ),
                                     child: Column(
                                       children: [
-                                        Image.asset("assets/burger.png",fit: BoxFit.fitWidth,height: 60,width: 50,),
+                                        Image.asset(ingredients[index].url,fit: BoxFit.fitWidth,height: 60,width: 50,),
                                         Text(
-                                          "potato",
+                                          ingredients[index].name,
                                           style: Theme.of(context).textTheme.labelSmall,
                                         )
                                       ],
@@ -260,7 +263,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                             )
                           ),
                           TextSpan(
-                            text: "9,60",
+                            text: widget.foodItems.price,
                             style: Theme.of(context).textTheme.headlineLarge
                           )
                         ]
