@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/constants.dart';
-import 'package:fooddeliveryapp/screens/foodDetails.dart';
 import 'package:fooddeliveryapp/screens/foodsList.dart';
 
 void main() {
